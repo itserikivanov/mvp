@@ -1,6 +1,9 @@
 name: "UnitTest"
 on: [push]
-description: "Unit Testing"
-runs:
-  - name: go-test-coverage
-    uses: vladopajic/go-test-coverage@v2.11.2
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: go-test-coverage
+        uses: vladopajic/go-test-coverage@v2.11.2
