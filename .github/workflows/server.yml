@@ -1,2 +1,5 @@
-- name: go-test-coverage
-  uses: vladopajic/go-test-coverage@v2.11.2
+name: "UnitTest"
+description: "Unit Testing"
+runs:
+  - name: go-test-coverage
+    uses: vladopajic/go-test-coverage@v2.11.2
