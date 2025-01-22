@@ -1,4 +1,5 @@
 name: "UnitTest"
+on: [push]
 description: "Unit Testing"
 runs:
   - name: go-test-coverage
