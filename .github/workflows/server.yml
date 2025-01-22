@@ -5,6 +5,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: generate test coverage
-        run: go test ./... -coverprofile=./cover.out -covermode=atomic -coverpkg=./...
+        run: cd server && go test ./... -coverprofile=./cover.out -covermode=atomic -coverpkg=./...
       - name: go-test-coverage
         uses: vladopajic/go-test-coverage@v2.11.2
