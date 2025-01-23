@@ -1,4 +1,4 @@
-name: "Unit Tests"
+name: "Server"
 on: 
   push:
     paths:
@@ -14,7 +14,7 @@ jobs:
       - uses: actions/setup-go@v5
       - name: generate test coverage
         run: go test ./... -coverprofile=./cover.out -covermode=atomic -coverpkg=./...    
-      # - name: go-test-coverage
-      #   uses: vladopajic/go-test-coverage@v2.11.2
-      #   with:
-      #     config: server/.testcoverage.yml
+      - name: go-test-coverage
+        uses: vladopajic/go-test-coverage@v2.11.2
+        with:
+          config: server/.testcoverage.yml
