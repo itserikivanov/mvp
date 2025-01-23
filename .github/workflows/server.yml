@@ -6,12 +6,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
-      - name: Install dependencies
-        run: go get .
-        working-directory: ./server
-      - name: Build
-        run: go build -v ./...
-        working-directory: ./server
       - name: generate test coverage
         run: go test ./... -coverprofile=./cover.out -covermode=atomic -coverpkg=./...    
         working-directory: ./server
