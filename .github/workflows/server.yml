@@ -1,5 +1,11 @@
 name: "Unit Tests"
-on: [push]
+on: 
+  push:
+    paths:
+      - 'server/**'
+defaults:
+  run:
+    working-directory: server
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -8,7 +14,6 @@ jobs:
       - uses: actions/setup-go@v5
       - name: generate test coverage
         run: go test ./... -coverprofile=./cover.out -covermode=atomic -coverpkg=./...    
-        working-directory: ./server
       - name: go-test-coverage
         uses: vladopajic/go-test-coverage@v2.11.2
         with:
