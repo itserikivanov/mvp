@@ -1,4 +1,4 @@
-module mvp
+module mvp/server
 
 go 1.23.2
 
