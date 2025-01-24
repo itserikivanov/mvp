@@ -1,4 +1,4 @@
-module mvp/server
+module github.com/itserikivanov/mvp/server
 
 go 1.23.2
 
