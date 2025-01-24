@@ -1,7 +1,0 @@
-profile: server/cover.out
-local-prefix: "github.com/itserikivanov/mvp/server"
-threshold:
-  file: 70
-  package: 70
-  total: 70
-  
