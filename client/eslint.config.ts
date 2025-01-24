@@ -2,6 +2,7 @@ import pluginVitest from '@vitest/eslint-plugin';
 import skipFormatting from '@vue/eslint-config-prettier/skip-formatting';
 import { defineConfigWithVueTs, vueTsConfigs } from '@vue/eslint-config-typescript';
 import pluginSimpleImportSort from 'eslint-plugin-simple-import-sort';
+import pluginSortDestructureKeys from 'eslint-plugin-sort-destructure-keys';
 import pluginVue from 'eslint-plugin-vue';
 
 // To allow more languages other than `ts` in `.vue` files, uncomment the following lines:
@@ -33,6 +34,7 @@ export default defineConfigWithVueTs(
   {
     plugins: {
       'simple-import-sort': pluginSimpleImportSort,
+      'sort-destructure-keys': pluginSortDestructureKeys,
     },
     rules: {
       'simple-import-sort/imports': [
@@ -42,6 +44,7 @@ export default defineConfigWithVueTs(
         },
       ],
       'simple-import-sort/exports': 'error',
+      'sort-destructure-keys/sort-destructure-keys': 2,
     },
-  },
+  }
 );
