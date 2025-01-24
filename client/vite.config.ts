@@ -1,10 +1,9 @@
-import { fileURLToPath, URL } from 'node:url';
-
-import { defineConfig } from 'vite';
+import tailwindcss from '@tailwindcss/vite';
 import vue from '@vitejs/plugin-vue';
+import { fileURLToPath, URL } from 'node:url';
+import { defineConfig } from 'vite';
 import vueDevTools from 'vite-plugin-vue-devtools';
 import { configDefaults } from 'vitest/config';
-import tailwindcss from '@tailwindcss/vite';
 
 // https://vite.dev/config/
 export default defineConfig({
