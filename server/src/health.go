@@ -7,5 +7,5 @@ import (
 )
 
 func (h *handler) healthCheck(c echo.Context) error {
-	return c.JSON(http.StatusOK, Response{Status: "OK"})
+	return c.JSON(http.StatusOK, Response{Data: "OK"})
 }

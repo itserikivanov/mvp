@@ -1,0 +1,21 @@
+info:
+  contact: {}
+paths:
+  /api/recipe:
+    post:
+      consumes:
+      - application/json
+      description: generate recipe
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: string
+            type: array
+      summary: Generate recipe
+      tags:
+      - recipe
+swagger: "2.0"

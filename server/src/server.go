@@ -5,14 +5,21 @@ import (
 
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
+	echoSwagger "github.com/swaggo/echo-swagger"
+	_ "github.com/swaggo/echo-swagger/example/docs"
 )
 
 type handler struct{}
 
 type Response struct {
-	Status string
+	Data interface{}
+	Errors []string
 }
 
+// @title Swagger MVP API
+// @version 1.0
+// @description Go server for MVP app
+// @BasePath /api
 func startServer() {
 	e := echo.New()
 
@@ -20,7 +27,10 @@ func startServer() {
 	e.Use(middleware.Recover())
 
 	h := handler{}
-	e.GET("/health", h.healthCheck)
+	
+	e.GET("/swagger/*", echoSwagger.WrapHandler)
+	e.GET("/api/health", h.healthCheck)
+	e.POST("/api/recipe", h.generateRecipe)
 
 	httpPort := os.Getenv("PORT")
 	if httpPort == "" {

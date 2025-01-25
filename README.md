@@ -12,7 +12,7 @@ Go Server for MVP app
 
 ```bash
 git clone https://github.com/itserikivanov/mvp
-cd mvp
+cd mvp/server
 ```
 
 ## Development
@@ -21,7 +21,7 @@ Run locally without Docker:
 
 ```bash
 go mod download
-go run main.go
+go run ./...
 ```
 
 Run with Docker:
@@ -34,4 +34,12 @@ docker compose up --build
 
 ```bash
 go test ./...
+```
+
+## Swagger
+
+Run on every schema update:
+
+```
+swag init
 ```

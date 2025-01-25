@@ -13,7 +13,7 @@ import (
 
 func TestHealthCheck(t *testing.T) {
 	e := echo.New()
-	req := httptest.NewRequest(http.MethodGet, "/health", nil)
+	req := httptest.NewRequest(http.MethodGet, "/api/health", nil)
 	rec := httptest.NewRecorder()
 	c := e.NewContext(req, rec)
 	h := &handler{}
@@ -24,6 +24,6 @@ func TestHealthCheck(t *testing.T) {
 		if err := json.NewDecoder(rec.Body).Decode(&result); err != nil {
 			log.Fatalln(err)
 		}
-		assert.EqualValues(t, Response{Status: "OK"}, result)
+		assert.EqualValues(t, Response{Data: "OK"}, result)
 	}
 }
