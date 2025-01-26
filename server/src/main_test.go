@@ -5,5 +5,6 @@ import (
 )
 
 func TestServer(t *testing.T) {
-	go startServer("8001")
+	t.Setenv("PORT", "8001")
+	go main()
 }
