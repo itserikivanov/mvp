@@ -24,6 +24,6 @@ func TestHealthCheck(t *testing.T) {
 		if err := json.NewDecoder(rec.Body).Decode(&result); err != nil {
 			log.Fatalln(err)
 		}
-		assert.EqualValues(t, Response{Data: "OK"}, result)
+		assert.EqualValues(t, Response{Data: "OK", Errors: []string{}}, result)
 	}
 }

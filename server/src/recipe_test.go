@@ -25,7 +25,7 @@ func TestEmptyRecipe(t *testing.T) {
 		if err := json.NewDecoder(rec.Body).Decode(&result); err != nil {
 			log.Fatalln(err)
 		}
-		assert.EqualValues(t, Response{Data: []interface{}{}}, result)
+		assert.EqualValues(t, Response{Data: []interface{}{}, Errors: []string{}}, result)
 	}
 }
 
@@ -43,6 +43,6 @@ func TestRecipe(t *testing.T) {
 		if err := json.NewDecoder(rec.Body).Decode(&result); err != nil {
 			log.Fatalln(err)
 		}
-		assert.EqualValues(t, Response{Data: []interface{}{"flour", "milk", "eggs"},}, result)
+		assert.EqualValues(t, Response{Data: []interface{}{"flour", "milk", "eggs"}, Errors: []string{}}, result)
 	}
 }

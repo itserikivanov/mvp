@@ -16,5 +16,5 @@ import (
 //  @Success      200	{object}	main.Response{}
 //  @Router       /health [get]
 func (h *handler) healthCheck(c echo.Context) error {
-	return c.JSON(http.StatusOK, Response{Data: "OK"})
+	return c.JSON(http.StatusOK, Response{Data: "OK", Errors: []string{}})
 }
