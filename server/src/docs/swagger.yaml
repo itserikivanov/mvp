@@ -1,6 +1,34 @@
+basePath: /api
+definitions:
+  main.Response:
+    properties:
+      data: {}
+      errors:
+        items:
+          type: string
+        type: array
+    type: object
 info:
   contact: {}
+  description: Go server for MVP app
+  title: Swagger MVP API
+  version: "1.0"
 paths:
+  /api/health:
+    get:
+      consumes:
+      - application/json
+      description: Health check
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Health check
+      tags:
+      - health
   /api/recipe:
     post:
       consumes:
@@ -13,7 +41,14 @@ paths:
           description: OK
           schema:
             items:
-              type: string
+              allOf:
+              - $ref: '#/definitions/main.Response'
+              - properties:
+                  data:
+                    items:
+                      type: string
+                    type: array
+                type: object
             type: array
       summary: Generate recipe
       tags:

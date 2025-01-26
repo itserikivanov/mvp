@@ -3,10 +3,10 @@ package main
 import (
 	"os"
 
+	_ "github.com/itserikivanov/mvp/server/src/docs"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 	echoSwagger "github.com/swaggo/echo-swagger"
-	_ "github.com/swaggo/echo-swagger/example/docs"
 )
 
 type handler struct{}
@@ -16,10 +16,6 @@ type Response struct {
 	Errors []string
 }
 
-// @title Swagger MVP API
-// @version 1.0
-// @description Go server for MVP app
-// @BasePath /api
 func startServer() {
 	e := echo.New()
 

@@ -1,9 +1,36 @@
 {
     "swagger": "2.0",
     "info": {
-        "contact": {}
+        "description": "Go server for MVP app",
+        "title": "Swagger MVP API",
+        "contact": {},
+        "version": "1.0"
     },
+    "basePath": "/api",
     "paths": {
+        "/api/health": {
+            "get": {
+                "description": "Health check",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "health"
+                ],
+                "summary": "Health check",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/main.Response"
+                        }
+                    }
+                }
+            }
+        },
         "/api/recipe": {
             "post": {
                 "description": "generate recipe",
@@ -23,9 +50,38 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "type": "string"
+                                "allOf": [
+                                    {
+                                        "$ref": "#/definitions/main.Response"
+                                    },
+                                    {
+                                        "type": "object",
+                                        "properties": {
+                                            "data": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
                             }
                         }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "main.Response": {
+            "type": "object",
+            "properties": {
+                "data": {},
+                "errors": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
                     }
                 }
             }
