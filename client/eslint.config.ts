@@ -24,9 +24,9 @@ export default defineConfigWithVueTs(
   },
 
   pluginVue.configs['flat/recommended'],
-  vueTsConfigs.recommended,
   ts.configs.recommended,
   js.configs.recommended,
+  vueTsConfigs.recommended,
 
   {
     ...pluginVitest.configs.recommended,
