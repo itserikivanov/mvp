@@ -4,6 +4,8 @@ import { defineConfigWithVueTs, vueTsConfigs } from '@vue/eslint-config-typescri
 import pluginSimpleImportSort from 'eslint-plugin-simple-import-sort';
 import pluginSortDestructureKeys from 'eslint-plugin-sort-destructure-keys';
 import pluginVue from 'eslint-plugin-vue';
+import ts from 'typescript-eslint';
+import js from '@eslint/js';
 
 // To allow more languages other than `ts` in `.vue` files, uncomment the following lines:
 // import { configureVueProject } from '@vue/eslint-config-typescript'
@@ -23,6 +25,8 @@ export default defineConfigWithVueTs(
 
   pluginVue.configs['flat/recommended'],
   vueTsConfigs.recommended,
+  ts.configs.recommended,
+  js.configs.recommended,
 
   {
     ...pluginVitest.configs.recommended,
