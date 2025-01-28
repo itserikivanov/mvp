@@ -1,31 +1,19 @@
 package main
 
 import (
-	"os"
-
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 )
 
-type handler struct{}
-
-type Response struct {
-	Status string
-}
-
-func startServer() {
+func startServer(port string) {
 	e := echo.New()
+	e.HideBanner = true
 
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
 
-	h := handler{}
-	e.GET("/health", h.healthCheck)
-
-	httpPort := os.Getenv("PORT")
-	if httpPort == "" {
-		httpPort = "8000"
-	}
-
-	e.Logger.Fatal(e.Start(":" + httpPort))
+	configureSwagger(e)
+	defineRoutes(e)
+	
+	e.Logger.Fatal(e.Start(":" + port))
 }
