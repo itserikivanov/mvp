@@ -1,3 +1,4 @@
+import js from '@eslint/js';
 import pluginVitest from '@vitest/eslint-plugin';
 import skipFormatting from '@vue/eslint-config-prettier/skip-formatting';
 import { defineConfigWithVueTs, vueTsConfigs } from '@vue/eslint-config-typescript';
@@ -5,7 +6,6 @@ import pluginSimpleImportSort from 'eslint-plugin-simple-import-sort';
 import pluginSortDestructureKeys from 'eslint-plugin-sort-destructure-keys';
 import pluginVue from 'eslint-plugin-vue';
 import ts from 'typescript-eslint';
-import js from '@eslint/js';
 
 // To allow more languages other than `ts` in `.vue` files, uncomment the following lines:
 // import { configureVueProject } from '@vue/eslint-config-typescript'
