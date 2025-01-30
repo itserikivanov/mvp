@@ -1,6 +1,7 @@
 import js from '@eslint/js'
 import pluginVue from 'eslint-plugin-vue'
 import pluginVitest from '@vitest/eslint-plugin'
+import pluginTailwind from 'eslint-plugin-tailwindcss'
 import skipFormatting from '@vue/eslint-config-prettier/skip-formatting'
 
 export default [
@@ -14,11 +15,13 @@ export default [
     ignores: ['**/dist/**', '**/dist-ssr/**', '**/coverage/**'],
   },
 
+  ...pluginTailwind.configs['flat/recommended'],
   js.configs.recommended,
   ...pluginVue.configs['flat/recommended'],
 
   {
     rules: {
+      'tailwindcss/no-custom-classname': 'off',
       'vue/block-order': [
         'error',
         {
